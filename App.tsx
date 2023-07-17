@@ -1,33 +1,27 @@
 import React, {useEffect} from 'react';
 //import axios from 'axios';
 import WelcomePage from './components/welcome/welcomePage';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Login from './Login';
 
-import {
-  View,
-  StyleSheet
-} from 'react-native';
+const Stack = createNativeStackNavigator();
 
 function App(): JSX.Element {
-
-  // const url = 'http://192.168.1.136:3000/test'
-  // const fetchApi = async () => {
-  //   const res = await axios.get(url)
-  //   console.log(res.data)
-  // }
-  // useEffect(() => {
-  //   fetchApi()
-  // }, [])
   return (
-    <View style={styles.container}>
-      <WelcomePage />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerShown: false
+      }}>
+        <Stack.Screen
+          name="Home"
+          component={WelcomePage}
+        />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-})
 
 export default App;

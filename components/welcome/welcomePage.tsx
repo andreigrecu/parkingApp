@@ -3,19 +3,20 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 const logoPath = '../../images/logo.jpg';
 
-const WelcomePage: React.FC = () => {
+const WelcomePage =  ({navigation}: {navigation: any}) => {
 
   const handleCreateAccount = () => {
     // Handle create account button press
+    navigation.navigate('Login')
     console.log('Create Account button pressed!');
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.upperBar}>
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>Log In</Text>
-        </TouchableOpacity>
+    <TouchableOpacity style={styles.loginButton}>
+        <Text style={styles.loginButtonText}>Log In</Text>
+    </TouchableOpacity>
       </View>
       <View style={styles.middle}>
         <Text style={styles.welcomeText}>Welcome to</Text>
